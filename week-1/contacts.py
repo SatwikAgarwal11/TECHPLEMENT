@@ -2,20 +2,29 @@
 contacts = []
 
 # Function to validate phone number
+
 def validate_phone(phone):
     return phone.isdigit() and len(phone) >= 9 and len(phone) <= 13
 
 # Function to add a contact
+
 def add_contact():
     name = input("Enter name: ").strip()
+    
+    #checking whether the name is entered
+    
     if not name:
         print("Error: Name cannot be empty.")
         return
+        
+    #taking phone number from the user
     
     phone = input("Enter phone number: ").strip()
     if not validate_phone(phone):
         print("Error: Phone number must be digits only and between 9 to 13 characters long.")
         return
+        
+    #for loop to check whether the user entered the name twice
     
     for contact in contacts:
         if contact['name'].lower() == name.lower():
@@ -26,6 +35,7 @@ def add_contact():
     print("Contact added successfully.")
 
 # Function to search for a contact by name
+
 def search_contact():
     name = input("Enter name to search: ").strip()
     if not name:
@@ -39,6 +49,7 @@ def search_contact():
     print("Contact not found.")
 
 # Function to update an existing contact
+
 def update_contact():
     name = input("Enter name of the contact to update: ").strip()
     if not name:
@@ -57,6 +68,7 @@ def update_contact():
     print("Contact not found.")
 
 # Main loop to show options and take user input
+
 def main():
     while True:
         print("\nContact Management System")
